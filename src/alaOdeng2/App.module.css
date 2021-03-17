@@ -1,0 +1,46 @@
+.Receipt{
+  border: 2px solid black;
+  margin:5px;
+  padding: 0 5px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.Receipt:hover{
+  background-color: aquamarine;
+  border: 2px dashed red;
+}
+
+.Person{
+  text-align: center;
+  border-bottom: 1px dashed gray;
+  font-size: 2rem;
+  font-family: 'Courier New', Courier, monospace;
+  margin:5px 10px;
+;
+}
+
+.Order{
+  display: block;
+  flex: 1 1 auto;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+font-size: 0.8rem;
+ padding: 5px 5px;
+  
+}
+
+
+.Flex{
+  display: flex;
+	flex-direction: row;
+
+
+}
+
+.btn{
+ 
+  padding: 3px;
+  display: block;
+  margin: 10px auto;
+
+}
