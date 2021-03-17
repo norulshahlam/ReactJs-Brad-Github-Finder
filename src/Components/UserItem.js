@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const UserItem = (
-  // e) simplifying the state values
+  // e) destructuring
   { user: { login, avatar_url, html_url } }
 ) =>
   // const {login, avatar_url, html_url}=this.state

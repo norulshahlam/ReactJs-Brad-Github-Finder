@@ -1,4 +1,4 @@
-***************** NOTES ***********************
+********\********* NOTES **********\*\*\***********
 
 to see which paort of the features is being used, simply search for the keywords indicated after each letter eg a. Props, b) default props, c) PropTypes, etc
 
@@ -17,10 +17,9 @@ https://blog.bitsrc.io/understanding-react-default-props-5c50401ed37d
 
 `c) PropTypes`
 
- defines type and which props are required. it's basically type checking. It will tell you if you know your prop should be a string or a number or an array or object or anything like that.
+defines type and which props are required. it's basically type checking. It will tell you if you know your prop should be a string or a number or an array or object or anything like that.
 
- https://developer.fortnox.se/blog/proptypes-in-react-js/
-
+https://developer.fortnox.se/blog/proptypes-in-react-js/
 
 `d) State`
 
@@ -30,11 +29,11 @@ In other words, the State of a component is an object that holds some informatio
 
 refers to a structure that keeps track of how data changes over time in your application
 
-`e) simplifying the state values` 
-
-or destructuring - pulling items out of the object state or props so you can call the object by the key or directly, leading to shorter codes
-
 https://www.digitalocean.com/community/tutorials/how-to-manage-state-on-react-class-components
+
+`e) destructuring `
+
+simplifying the state values - pulling items out of the object state or props so you can call the object by the key or directly, leading to shorter codes
 
 `f) unique key prop`
 
@@ -56,13 +55,13 @@ A `Stateful` component can be a functional component or a class component, which
 
 for this project we will be using funct-based component for all components
 
-a good guideline: 
+a good guideline:
 for class-based: use `this.` to get props
 for func-based: use `props` to get props
 
 https://dev.to/bello/react-stateless-vs-stateful-components-3hfi
 
-` g) componentDidMount() `
+`g) componentDidMount()`
 
 These methods are called in the following order when an instance of a component is being created and inserted into the DOM:
 
@@ -73,44 +72,45 @@ componentDidMount()
 
 componentDidMount() is invoked immediately after a component is mounted (inserted into the tree). Initialization that requires DOM nodes should go here. If you need to load data from a remote endpoint, this is a good place to instantiate the network request.
 
-
 https://reactjs.org/docs/react-component.html#mounting
 https://reactjs.org/docs/react-component.html#componentdidmount
 
 [
 
-` h) axios ` -
+`h) axios` -
 
 Apromise-based HTTP client, which gives you the ability to take advantage of JavaScript’s async and await for more readable asynchronous code. run `npm i axios` to install Axios
 
+`i)setState on fetch data`
 
-` i)setState on fetch data `
-
-The reason to have loading is because there's going to be a moment in time before we actually get the data back. 
+The reason to have loading is because there's going to be a moment in time before we actually get the data back.
 So while that's happening while basically while it's fetching and before we want loading to be true and then as soon as it's fetched we'll change it back to FALSE that way in our UI we can say if this data isn't loaded then let's show us a spinner else we'll show the data.
 
-` j) Fragment `
+`j) Fragment`
 
 React fragments let you group a list of children without adding extra nodes to the DOM because fragments are not rendered to the DOM. So basically we use React.Fragment where we would normally use a wrapper div.
 
 https://dev.to/tumee/react-fragments-what-why-how-2kh1
 
-` k) env variables `
+`k) env variables`
 
 If you are using some external APIs for data you must use the .env file to store your sensitive credentials like API keys. Environment variables can also help us to store our API link in one location so that we don’t have to change the link in each file manually and access it anywhere as it is stored globally
 
 https://create-react-app.dev/docs/adding-custom-environment-variables/#what-other-env-files-can-be-used
 
-` l) spinner `
+`l) spinner`
 
-to load spinner when page is loading. 
+to load spinner when page is loading.
 
-` m) event binding `
+`m) event binding`
 
-in search comp, we have 2 events. 1 - onChange handler uses arrow func, 2 - onSubmit handler doesnt. 
+in search comp, we have 2 events. 1 - onChange handler uses arrow func, 2 - onSubmit handler doesnt.
 
 When we bind the this of the event handler to the component instance in the constructor, we can pass it as a callback without worrying about it losing its context. Arrow functions are exempt from this behavior because they use lexical this binding which automatically binds them to the scope they are defined in
 
+`n) send props up`
+
+`o) show 'clear btn' only when results displayed`
 
 # Getting Started with Create React App
 

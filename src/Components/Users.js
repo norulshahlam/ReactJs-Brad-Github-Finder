@@ -3,7 +3,7 @@ import { Spinner } from "./Spinner";
 import UserItem from "./UserItem";
 import PropTypes from "prop-types";
 
-// e) simplifying the state values
+// e) destructuring
 const Users = ({ users, loading }) => {
   if (loading) {
     return <Spinner />;
