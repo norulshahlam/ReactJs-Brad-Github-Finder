@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import "./App.css";
 import Navbar from "./Components/Navbar";
 import Users from "./Components/Users";
+import User from "./Components/User";
 import axios from "axios";
 import Search from "./Components/Search";
 import Alert from "./Components/Alert";
@@ -13,6 +14,9 @@ class App extends Component {
     users: [],
     loading: false,
     alert: null,
+    user: {},
+    repo: [],
+    repos: [],
   };
 
   // g) componentDidMount(), h) axios, i)setState on fetch data
@@ -34,6 +38,21 @@ class App extends Component {
     this.setState({ loading: false, users: res.data.items });
   };
 
+  getUser = async (username) => {
+    this.setState({ loading: true });
+    const res = await axios.get(
+      `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    );
+    this.setState({ loading: false, user: res.data });
+  };
+  getUserRepos = async (username) => {
+    this.setState({ loading: true });
+    const res = await axios.get(
+      `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    );
+    this.setState({ loading: false, repos: res.data });
+  };
+
   //o) show 'clear btn' only when results displayed
   clearUsers = () => {
     this.setState({ users: [], loading: false });
@@ -46,6 +65,7 @@ class App extends Component {
   };
 
   render() {
+    const { users, user, repos, loading } = this.state;
     return (
       <Router>
         <div className="App">
@@ -62,17 +82,28 @@ class App extends Component {
                       searchUsers={this.searchUsers}
                       clearUsers={this.clearUsers}
                       // o) show 'clear btn' only when results displayed
-                      showClear={this.state.users.length > 0 ? true : false}
+                      showClear={users.length > 0 ? true : false}
                       setAlert={this.setAlert}
                     />
-                    <Users
-                      loading={this.state.loading}
-                      users={this.state.users}
-                    />
+                    <Users loading={loading} users={users} />
                   </Fragment>
                 )}
               />
               <Route exact path="/about" component={About} />
+              <Route
+                exact
+                path="/user/:login"
+                render={(props) => (
+                  <User
+                    {...props}
+                    getUser={this.getUser}
+                    getUserRepos={this.getUserRepos}
+                    repos={repos}
+                    user={user}
+                    loading={loading}
+                  />
+                )}
+              />
             </Switch>
           </div>
         </div>

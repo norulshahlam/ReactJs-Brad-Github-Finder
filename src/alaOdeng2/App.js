@@ -1,37 +1,56 @@
 import ViewUnpaid from "./ViewUnpaid";
 import { Receipt } from "./Receipt";
 import { Component } from "react";
+import css from "./App.module.css";
+
+const paid = [];
+Receipt.forEach((data) => {
+  paid.push(data.paid);
+});
 
 class App extends Component {
-  state = {
-    pay: [false, false, false],
-  };
+  // https://www.robinwieruch.de/react-state-array-add-update-remove
+  constructor(props) {
+    super(props);
+    //init state using prop of Receipt.paid
+    this.state = {
+      paid,
+    };
+  }
 
   settlePayment = (i) => {
-    console.log(i);
-    const pay2 = [...this.state.pay];
-    pay2[i] = true;
-    console.log(pay2);
-    this.setState({ pay: pay2 });
+    const paid2 = [...this.state.paid];
+    paid2[i] = true;
+
+    this.setState({ paid: paid2 });
   };
+
   render() {
+    let viewUnpay = [];
+
+    Receipt.forEach((data, index) => {
+      //add only if cust not paid
+      if (this.state.paid[index] === false) {
+        viewUnpay.push(
+          <ViewUnpaid
+            id={index}
+            key={index}
+            receipt={data}
+            person={data.person}
+            order={data.order}
+            settlePayment={this.settlePayment}
+          />
+        );
+      }
+    });
     return (
       <div>
-        <h1>Korilla Korean barbecue tacos</h1>
-        {Receipt.map((data, index) => {
-          return this.state.pay[index] === false ? (
-            <ViewUnpaid
-              id={index}
-              key={index}
-              receipt={data}
-              person={data.person}
-              order={data.order}
-              settlePayment={this.settlePayment}
-            />
-          ) : (
-            <h1></h1>
-          );
-        })}
+        <div className={css.Title}>Korilla Korean barbecue tacos</div>
+        {this.state.paid.includes(false) ? (
+          <div className={css.container}>{viewUnpay}</div>
+        ) : (
+          <div className={css.Title}>All Paid!</div>
+        )}
       </div>
     );
   }

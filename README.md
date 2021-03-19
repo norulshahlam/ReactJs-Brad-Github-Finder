@@ -1,4 +1,4 @@
-********\********* NOTES **********\*\*\***********
+**\*\*\*\***\***\*\*\*\*** NOTES \***\*\*\*\*\***\*\*\*\***\*\*\*\*\***
 
 to see which paort of the features is being used, simply search for the keywords indicated after each letter eg a. Props, b) default props, c) PropTypes, etc
 
@@ -111,6 +111,25 @@ When we bind the this of the event handler to the component instance in the cons
 `n) send props up`
 
 `o) show 'clear btn' only when results displayed`
+
+`p) react-router-DOM`
+
+A tool that allows you to handle routes in a web app, using dynamic routing.
+A router allows your application to navigate between different components, changing the browser URL, modifying the browser history, and keeping the UI state in sync.
+
+https://blog.logrocket.com/react-router-dom-set-up-essential-components-parameterized-routes-505dc93642f1/#:~:text=react%2Drouter%2Ddom%20%3A%20It,development%20environment%20using%20React%20Native
+https://www.educative.io/edpresso/what-is-a-react-router
+
+https://medium.com/the-andela-way/understanding-the-fundamentals-of-routing-in-react-b29f806b157e
+
+<Router>: The router that keeps the UI in sync with the URL
+
+<Link>: Renders a navigation link
+<Route>: Renders a UI component depending on the URL
+<Switch> render only the first route that matches the location:
+render prop provides the ability for inline rendering and passing extra props to the element
+
+https://stackoverflow.com/questions/45122800/react-router-switch-behavior
 
 # Getting Started with Create React App
 
