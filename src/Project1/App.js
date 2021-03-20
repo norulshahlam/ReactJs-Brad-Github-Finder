@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from "react";
 import "./App.css";
-import Navbar from "./Project1/Navbar";
-import Users from "./Project1/Users";
-import User from "./Project1/User";
+import Navbar from "./Navbar";
+import Users from "./Users";
+import User from "./User";
 import axios from "axios";
-import Search from "./Project1/Search";
-import Alert from "./Project1/Alert";
-import About from "./Project1/About";
+import Search from "./Search";
+import Alert from "./Alert";
+import About from "./About";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 class App extends Component {
