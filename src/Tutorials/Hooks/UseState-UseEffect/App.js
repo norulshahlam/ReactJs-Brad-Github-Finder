@@ -5,6 +5,9 @@ useEffect serves the same purpose as componentDidMount, componentDidUpdate, and 
 
 a setting of a state inside useEffect means useEffect will be triggered (cos of state/prop change), which means a state inside will get changed, which in turn triggers the useEffect (cos of state/prop change), and ad infinitum.
 
+so there's 2 way to prevent this: to use the state as the 2nd arg so the useEffect() only trigggers when the state change. or
+to use empty array so useEffect() will run only once
+
 State
 
 The names above can be anything you want, it doesn't matter for React. It is adviseable to use descriptive and meaningful variable names depending on the state's purpose.
@@ -27,11 +30,16 @@ const App = () => {
   //2. set init value (initState) to true, and the name of the set state = 'newToggle'
   const [initToggle, newToggle] = useState(true);
   const [initCount, newCount] = useState(0);
+  const [num, setNum] = useState(0);
+
+  //this part trigggers when there is a change in props/state overall
+  console.log("in main");
+  console.log("num in selection: ", num);
 
   useEffect(() => {
-    //this part trigggers when there is a change in props/state
-    console.log(initCount);
-  });
+    //this part trigggers when there is a change in props/state DEFINED in 2nd arg
+    console.log("in useEffect");
+  }, [initCount]);
 
   const onClick = () => {
     //3. setting the new state value
@@ -50,6 +58,22 @@ const App = () => {
       {/* this button wil toggle false/true value on click */}
       <button onClick={onClick}>
         Click Me to toggle below child component!
+      </button>
+      <br />
+      <br />
+      <button
+        onClick={() => {
+          setNum(1);
+        }}
+      >
+        Select 1
+      </button>
+      <button
+        onClick={() => {
+          setNum(2);
+        }}
+      >
+        Select 2
       </button>
       {/* display below comp if state is true */}
       {initToggle && <MyState />}
