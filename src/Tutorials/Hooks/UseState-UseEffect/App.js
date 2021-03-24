@@ -14,11 +14,11 @@ The names above can be anything you want, it doesn't matter for React. It is adv
 
 The argument passed to useState is the actual initial state, the data that will be subject to changes. useState returns for you two bindings:
 
-the actual value for the state (initToggle)
-the state updater function for said state (newToggle)
+the actual value for the state (toggle)
+the state updater function for said state (setToggle)
 argument passed to useState, actual initial state(true)
 eg:
-const [initToggle, newToggle] = useState(true);
+const [toggle, setToggle] = useState(true);
 
 */
 
@@ -27,24 +27,24 @@ import React, { useState, useEffect } from "react";
 import MyState from "./MyState";
 
 const App = () => {
-  //2. set init value (initState) to true, and the name of the set state = 'newToggle'
-  const [initToggle, newToggle] = useState(true);
+  //2. set init value (initState) to true, and the name of the set state = 'setToggle'
+  const [toggle, setToggle] = useState(true);
   const [initCount, newCount] = useState(0);
   const [num, setNum] = useState(0);
 
   //this part trigggers when there is a change in props/state overall
-  console.log("in main");
-  console.log("num in selection: ", num);
+  console.log("in main, selected number: ", num);
 
   useEffect(() => {
     //this part trigggers when there is a change in props/state DEFINED in 2nd arg
     console.log("in useEffect");
-  }, [initCount]);
+  }, [initCount, num]);
 
   const onClick = () => {
     //3. setting the new state value
-    newToggle(!initToggle);
+    setToggle(!toggle);
     counter();
+    console.log("clicked!");
   };
 
   const counter = () => {
@@ -64,6 +64,7 @@ const App = () => {
       <button
         onClick={() => {
           setNum(1);
+          console.log("clicked!");
         }}
       >
         Select 1
@@ -71,12 +72,15 @@ const App = () => {
       <button
         onClick={() => {
           setNum(2);
+          console.log("clicked!");
         }}
       >
         Select 2
       </button>
       {/* display below comp if state is true */}
-      {initToggle && <MyState />}
+      {toggle && <MyState />}
+
+      <h1>Selected: {num}</h1>
     </div>
   );
 };
