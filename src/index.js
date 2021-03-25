@@ -14,7 +14,8 @@ import ReactDOM from "react-dom";
 // import App from "./Tutorials/Hooks/UseState-UseEffect/App";
 // import App from "./Tutorials/Hooks/UseRef/App";
 // import App from "./Tutorials/Hooks/useReducer1/App";
-import App from "./Tutorials/Hooks/useReducer2/App";
+// import App from "./Tutorials/Hooks/useReducer2/App";
+import App from "./Tutorials/Hooks/useCallback/App";
 
 ReactDOM.render(
   <React.StrictMode>

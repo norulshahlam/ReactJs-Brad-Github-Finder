@@ -4,7 +4,7 @@ import { ACTIONS } from "./App";
 function Todo({ todo, dispatch }) {
   return (
     <div>
-      <span style={{ color: todo.complete ? "#AAA" : "#000" }}>
+      <span style={{ background: todo.complete ? "green" : "blue" }}>
         {todo.name}
       </span>
       <button
