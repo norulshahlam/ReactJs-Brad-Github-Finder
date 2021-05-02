@@ -1,6 +1,6 @@
 /*
 The React docs say that 
-useCallback: Returns a memoized callback.
+useCallback: Returns a memorized callback.
 And that useMemo: Returns a memoized value.
 
 In other words, useCallback gives you referential equality between renders for functions. And useMemo gives you referential equality between renders for values.

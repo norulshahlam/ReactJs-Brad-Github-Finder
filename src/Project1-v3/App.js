@@ -5,7 +5,7 @@ import Home from "./Home";
 import User from "./User";
 import NotFound from "./NotFound";
 
-import Alert from "./Alert";
+import Alert from "./Alert"; 
 import About from "./About";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GitState from "./GitState";
@@ -15,7 +15,7 @@ const App = () => {
   return (
     <GitState>
       <AlertState>
-        <Router>
+        <Router>  
           <div className="App">
             <Navbar title="Github Finder" icon="fab fa-github" />
             <div className="container">
@@ -32,5 +32,5 @@ const App = () => {
       </AlertState>
     </GitState>
   );
-};
+}; 
 export default App;

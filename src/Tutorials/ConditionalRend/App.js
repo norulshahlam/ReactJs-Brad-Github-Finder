@@ -9,7 +9,7 @@ https://www.digitalocean.com/community/tutorials/7-ways-to-implement-conditional
 https://reactjs.org/docs/hooks-state.html
 */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Blue from "./Blue";
 import False from "./False";
@@ -25,16 +25,22 @@ const App = () => {
     console.log(color);
   };
 
-  const setBoolz = (e) => {
-    console.log(e.target.innerText);
-    setBool(e.target.innerText);
+  const setBoolFalse = (e) => {
+    setBool(false);
+  };
+  const setBoolTrue = (e) => {
+    setBool(true);
+  };
 
-    if (bool == "true") {
+  useEffect(() => {
+console.log(bool);
+
+    if (bool === true) {
       select = <True />;
-    } else if (bool == "false") {
+    } if (bool === false) {
       select = <False />;
     }
-  };
+  }, [bool]);
 
   return (
     <div>
@@ -52,11 +58,11 @@ const App = () => {
           }
         })()}
       </div>
-      {/* this is seeting state within the element  */}
+      {/* this is setting state within the element  */}
       <div className="ifElse">
         <h1>Choose a boolean value</h1>
-        <button onClick={setBoolz}>false</button>
-        <button onClick={setBoolz}>true</button>
+        <button onClick={setBoolFalse}>false</button>
+        <button onClick={setBoolTrue}>true</button>
         {select}
       </div>
     </div>
