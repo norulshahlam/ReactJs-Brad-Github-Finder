@@ -2,7 +2,7 @@
 
 `Instructor: Brad Traversy`
 
-[https://www.udemy.com/course/modern-react-front-to-back/learn/lecture/14969910#overview]
+[https://www.udemy.com/course/modern-react-front-to-back/learn/lecture/14969700#overview]
 
 #### a) understanding the React structure.
 
